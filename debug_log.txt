@@ -1,0 +1,136 @@
+ID: 16, Request: 100000, Actual: 90000, Selisih: 10000, Status: Pengembalian
+Query: UPDATE cash_advance 
+              SET jumlah_actual='90000', 
+                  date_settlement='2025-03-18',
+                  status='Pengembalian' WHERE id_ca='16'
+ID: 17, Request: 10000, Actual: 9000, Selisih: 1000, Status: Refund
+Query: UPDATE cash_advance 
+              SET jumlah_actual='9000', 
+                  date_settlement='2025-03-18',
+                  status='Refund' WHERE id_ca='17'
+ID: 18, Request: 10000, Actual: 9000, Selisih: 1000, Status: Refund
+Query: UPDATE cash_advance 
+              SET jumlah_actual='9000', 
+                  date_settlement='2025-03-18',
+                  status='Refund', bukti_pengembalian='bukti_18_20250318072423.jpg' WHERE id_ca='18'
+ID: 19, Request: 10000, Actual: 9000, Selisih: 1000, Status: Refund
+Query: UPDATE cash_advance 
+              SET jumlah_actual='9000', 
+                  date_settlement='2025-03-18',
+                  status='Refund' WHERE id_ca='19'
+Refund Query: UPDATE cash_advance 
+              SET status='Done',
+                  refund_date='2025-03-18',
+                  refund_notes='xzcszcscsc', bukti_pengembalian='refund_20_20250318084108.png' WHERE id_ca='20'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='900000', 
+                  date_settlement='2025-03-18',
+                  status='Settled', bukti_nota='nota_22_20250318090410.png' WHERE id_ca='22'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='400000', 
+                  date_settlement='2025-03-18',
+                  status='Settled', bukti_nota='nota_23_20250318090459.png' WHERE id_ca='23'
+Refund Query: UPDATE cash_advance 
+              SET status='Done',
+                  refund_date='2025-03-18',
+                  refund_notes='tes', bukti_pengembalian='refund_23_20250318090557.png' WHERE id_ca='23'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='800000', 
+                  date_settlement='2025-03-18',
+                  status='Settled' WHERE id_ca='24'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='100000', 
+                  date_settlement='2025-03-18',
+                  status='Settled', bukti_nota='nota_25_20250318104404.png' WHERE id_ca='25'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='1000000', 
+                  date_settlement='2025-03-18',
+                  status='Settled', bukti_nota='nota_26_20250318104443.png' WHERE id_ca='26'
+Refund Query: UPDATE cash_advance 
+              SET status='Done',
+                  refund_date='2025-03-18',
+                  refund_notes='adadadadadad', bukti_pengembalian='refund_26_20250318104453.png' WHERE id_ca='26'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='200000', 
+                  date_settlement='2025-03-18',
+                  status='Settled' WHERE id_ca='27'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='50', 
+                  date_settlement='2025-03-18',
+                  status='Settled' WHERE id_ca='28'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='50000', 
+                  date_settlement='2025-03-18',
+                  status='Settled', bukti_nota='nota_29_20250318110313.png' WHERE id_ca='29'
+Refund Query: UPDATE cash_advance 
+              SET status='Done',
+                  refund_date='2025-03-18',
+                  refund_notes='adadadad', bukti_pengembalian='refund_29_20250318110328.png' WHERE id_ca='29'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='100000', 
+                  date_settlement='2025-03-19',
+                  status='Settled', bukti_nota='nota_31_20250319041448.png' WHERE id_ca='31'
+Refund Query: UPDATE cash_advance 
+              SET status='Done',
+                  refund_date='2025-03-19',
+                  refund_notes='sdsdsdsds', bukti_pengembalian='refund_31_20250319041509.jpg' WHERE id_ca='31'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='8000000', 
+                  date_settlement='2025-03-19',
+                  status='Settled', bukti_nota='nota_35_20250319073402.png' WHERE id_ca='35'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='8000000', 
+                  date_settlement='2025-03-19',
+                  status='Settled' WHERE id_ca='36'
+Refund Query: UPDATE cash_advance 
+              SET status='Refund',
+                  refund_date='2025-03-19',
+                  refund_notes='898989', bukti_pengembalian='refund_36_20250319073524.png' WHERE id_ca='36'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='8000000', 
+                  date_settlement='2025-03-19',
+                  status='Settled' WHERE id_ca='37'
+Refund Query: UPDATE cash_advance 
+              SET status='Refund',
+                  refund_date='2025-03-19',
+                  refund_notes='tes', bukti_pengembalian='refund_37_20250319074409.png' WHERE id_ca='37'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='3800000', 
+                  date_settlement='2025-03-20',
+                  status='Settled', bukti_nota='nota_42_20250320064936.jpg' WHERE id_ca='42'
+Refund Query: UPDATE cash_advance 
+              SET status='Refund',
+                  refund_date='2025-03-20',
+                  refund_notes='testes', bukti_pengembalian='refund_42_20250320065005.png' WHERE id_ca='42'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='8000000', 
+                  date_settlement='2025-03-20',
+                  status='Settled' WHERE id_ca='43'
+Refund Query: UPDATE cash_advance 
+              SET status='Refund',
+                  refund_date='2025-03-20',
+                  refund_notes='', bukti_pengembalian='refund_43_20250320075611.png' WHERE id_ca='43'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='3500000', 
+                  date_settlement='2025-03-20',
+                  status='Settled' WHERE id_ca='44'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='4000000', 
+                  date_settlement='2025-03-24',
+                  status='Settled', bukti_nota='nota_45_20250325092317.jpg' WHERE id_ca='45'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='4000000', 
+                  date_settlement='2025-03-25',
+                  status='Settled' WHERE id_ca='46'
+Refund Query: UPDATE cash_advance 
+              SET status='Refund',
+                  refund_date='2025-03-25',
+                  refund_notes='', bukti_pengembalian='refund_46_20250325094152.png' WHERE id_ca='46'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='1300000', 
+                  date_settlement='2025-03-27',
+                  status='Settled' WHERE id_ca='47'
+Refund Query: UPDATE cash_advance 
+              SET status='Refund',
+                  refund_date='2025-03-27',
+                  refund_notes='', bukti_pengembalian='refund_47_20250327041203.png' WHERE id_ca='47'
