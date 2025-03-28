@@ -9,6 +9,7 @@ $pageFiles = [
 
 
     'CashOutExport' => 'cash-out-export.php',
+    'CashOutPrint' => 'cash-out-print.php',
     'Profile' => 'profile.php',
     'Barang' => 'barang.php',
     'Lokasi' => 'lokasi.php',

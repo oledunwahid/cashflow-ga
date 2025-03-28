@@ -1,4 +1,6 @@
 <header id="page-topbar">
+    <!-- Add flag-icon-css from CDN for online flag icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css">
     <div class="layout-width">
         <div class="navbar-header">
             <div class="d-flex">
@@ -33,10 +35,10 @@
                 </button>
 
                 <!-- App Search-->
-               <div class="d-flex align-items-center">
-                    
-                      <h5>Employee Information Portal </h5> 
-                  
+                <div class="d-flex align-items-center">
+
+                    <h5>Employee Information Portal </h5>
+
                 </div>
             </div>
 
@@ -55,57 +57,60 @@
                         <i class='bx bx-moon fs-22'></i>
                     </button>
                 </div>
-				
-				
-				<?php
-// Ambil URL saat ini tanpa parameter lang
-$queryString = $_SERVER['QUERY_STRING'] ?? '';
-parse_str($queryString, $params);
-unset($params['lang']); // Hapus parameter lang lama
 
-// Buat URL baru dengan tambahan parameter lang
-$baseUrl = basename($_SERVER['PHP_SELF']); // Ambil nama file, misalnya "index.php"
-$indonesiaUrl = $baseUrl . '?' . http_build_query(array_merge($params, ['lang' => 'indonesia']));
-$englishUrl = $baseUrl . '?' . http_build_query(array_merge($params, ['lang' => 'english']));
-?>
+                <?php
+                // Get current URL without language parameter
+                $queryString = $_SERVER['QUERY_STRING'] ?? '';
+                parse_str($queryString, $params);
+                unset($params['lang']); // Remove existing lang parameter
 
-<!-- Dropdown Bahasa -->
-<li class="nav-item">
-    <div class="dropdown ms-1 header-item d-none d-sm-flex">
-        <button class="btn btn-icon btn-topbar btn-ghost-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown">
-            <?= strtoupper($language === 'indonesia' ? 'ID' : 'EN') ?>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="<?= $indonesiaUrl ?>">???? Indonesia</a></li>
-            <li><a class="dropdown-item" href="<?= $englishUrl ?>">???? English</a></li>
-        </ul>
-    </div>
-</li>
+                // Create new URLs with language parameter
+                $baseUrl = basename($_SERVER['PHP_SELF']); // Get current filename (e.g., "index.php")
+                $indonesiaUrl = $baseUrl . (empty($params) ? '?lang=indonesia' : '?' . http_build_query($params) . '&lang=indonesia');
+                $englishUrl = $baseUrl . (empty($params) ? '?lang=english' : '?' . http_build_query($params) . '&lang=english');
 
-                
+                // Determine current language
+                $language = isset($_GET['lang']) ? $_GET['lang'] : 'english'; // Default to English
+                ?>
+
+                <!-- Language Dropdown -->
+                <div class="dropdown ms-1 header-item d-none d-sm-flex">
+                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                        id="language-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="fw-medium"><?= strtoupper($language === 'indonesia' ? 'ID' : 'EN') ?></span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a href="<?= $indonesiaUrl ?>" class="dropdown-item <?= $language === 'indonesia' ? 'active' : '' ?>">
+                            <i class="fi fi-id me-2"></i> Indonesia
+                        </a>
+                        <a href="<?= $englishUrl ?>" class="dropdown-item <?= $language === 'english' ? 'active' : '' ?>">
+                            <i class="fi fi-us me-2"></i> English
+                        </a>
+                    </div>
+                </div>
 
                 <div class="dropdown ms-sm-3 header-item topbar-user">
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
-                           <img class="rounded-circle header-profile-user" src="file/profile/<?=$foto_profile ?>"
+                            <img class="rounded-circle header-profile-user" src="file/profile/<?= $foto_profile ?>"
                                 alt="Header Avatar">
                             <span class="text-start ms-xl-2">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text"> <?=$namalogin ?></span>
-                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text"><?=$divisilogin?></span>
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text"> <?= $namalogin ?></span>
+                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text"><?= $divisilogin ?></span>
                             </span>
                         </span>
                     </button>
-					
-					
+
+
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <h6 class="dropdown-header">Welcome  <?=$namalogin ?>!</h6>
+                        <h6 class="dropdown-header">Welcome <?= $namalogin ?>!</h6>
                         <a class="dropdown-item" href="index.php?page=Profile"><i
                                 class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Profile</span></a>
-                        
-                        
+
+
                         <a class="dropdown-item" href="logout.php"><i
                                 class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle" data-key="t-logout">Logout</span></a>
