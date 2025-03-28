@@ -80,42 +80,7 @@ if (!isset($_SESSION['idnik'])) {
                         </select>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <label for="startDate" class="form-label">Tanggal Mulai</label>
-                        <input type="date" id="startDate" class="form-control">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="endDate" class="form-label">Tanggal Akhir</label>
-                        <input type="date" id="endDate" class="form-control">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="dateType" class="form-label">Tipe Tanggal</label>
-                        <select id="dateType" class="form-select">
-                            <option value="date">Tanggal Transaksi</option>
-                            <option value="date_settled">Tanggal Settlement</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="filterRequestor" class="form-label">Filter Requestor</label>
-                        <select id="filterRequestor" class="select2 form-control" multiple="multiple">
-                            <?php
-                            $queryRequestors = "SELECT DISTINCT u.idnik, u.nama 
-                                               FROM petty_cash_out pco
-                                               LEFT JOIN user u ON pco.request = u.idnik
-                                               WHERE (pco.is_deleted = 0 OR pco.is_deleted IS NULL) 
-                                               AND pco.status = 'Settled'
-                                               AND u.nama IS NOT NULL
-                                               ORDER BY u.nama";
-                            $resultRequestors = mysqli_query($koneksi, $queryRequestors);
-                            while ($rowRequestor = mysqli_fetch_assoc($resultRequestors)) {
-                                echo "<option value='" . htmlspecialchars($rowRequestor['nama']) . "'>" . htmlspecialchars($rowRequestor['nama']) . "</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="row mb-3">
+                <div class="row mb-3 justify-content-end">
                     <div class="col-md-12 d-flex justify-content-end">
                         <button id="resetFilter" class="btn btn-secondary me-2">Reset Filter</button>
                         <button id="applyFilter" class="btn btn-primary">Terapkan Filter</button>
@@ -159,10 +124,8 @@ if (!isset($_SESSION['idnik'])) {
                                                 <th>ID</th>
                                                 <th>Deskripsi</th>
                                                 <th>Kategori</th>
-                                                <th>Tanggal</th>
                                                 <th>Harga</th>
                                                 <th>Company</th>
-                                                <th>Request</th>
                                                 <th>ID Settlement</th>
                                                 <th>Tanggal Settled</th>
                                             </tr>
@@ -171,21 +134,18 @@ if (!isset($_SESSION['idnik'])) {
                                             <?php
                                             // Query untuk mengambil data dengan status Settled
                                             $sql = "SELECT 
-                                                pco.id_pc_out, 
-                                                pco.deskripsi,
-                                                pco.kategori,
-                                                pco.date, 
-                                                pco.harga,
-                                                pco.company,
-                                                u.nama AS requestor,
-                                                pco.id_settled,
-                                                pco.date_settled
-                                            FROM 
-                                                petty_cash_out pco
-                                            LEFT JOIN user u ON pco.request = u.idnik
-                                            WHERE pco.status = 'Settled' 
-                                            AND (pco.is_deleted = 0 OR pco.is_deleted IS NULL)
-                                            ORDER BY pco.date_settled DESC";
+pco.id_pc_out, 
+pco.deskripsi,
+pco.kategori,
+pco.harga,
+pco.company,
+pco.id_settled,
+pco.date_settled
+FROM 
+petty_cash_out pco
+WHERE pco.status = 'Settled' 
+AND (pco.is_deleted = 0 OR pco.is_deleted IS NULL)
+ORDER BY pco.date_settled DESC";
 
                                             $result = mysqli_query($koneksi, $sql);
                                             if (!$result) {
@@ -194,9 +154,17 @@ if (!isset($_SESSION['idnik'])) {
 
                                             $totalHarga = 0;
                                             $rowCount = 0;
+
+                                            // Simpan hasil query dalam array untuk digunakan dalam loop
+                                            $rows = array();
                                             while ($row = mysqli_fetch_assoc($result)) {
+                                                $rows[] = $row;
                                                 $totalHarga += $row['harga'];
                                                 $rowCount++;
+                                            }
+
+                                            // Kemudian gunakan $rows dalam loop foreach untuk menampilkan data
+                                            foreach ($rows as $row) {
                                             ?>
                                                 <tr>
                                                     <td>
@@ -204,11 +172,9 @@ if (!isset($_SESSION['idnik'])) {
                                                             <input class="form-check-input row-checkbox" type="checkbox"
                                                                 value="<?= $row['id_pc_out'] ?>"
                                                                 data-description="<?= htmlspecialchars($row['deskripsi']); ?>"
-                                                                data-date="<?= htmlspecialchars($row['date']); ?>"
                                                                 data-harga="<?= $row['harga']; ?>"
                                                                 data-category="<?= htmlspecialchars($row['kategori']); ?>"
                                                                 data-company="<?= htmlspecialchars($row['company']); ?>"
-                                                                data-requestor="<?= htmlspecialchars($row['requestor']); ?>"
                                                                 data-settlement-id="<?= htmlspecialchars($row['id_settled']); ?>"
                                                                 data-settlement-date="<?= htmlspecialchars($row['date_settled']); ?>">
                                                         </div>
@@ -216,10 +182,8 @@ if (!isset($_SESSION['idnik'])) {
                                                     <td><?= htmlspecialchars($row['id_pc_out']); ?></td>
                                                     <td><?= htmlspecialchars($row['deskripsi']); ?></td>
                                                     <td><?= htmlspecialchars($row['kategori']); ?></td>
-                                                    <td><?= htmlspecialchars($row['date']); ?></td>
                                                     <td data-sort="<?= $row['harga']; ?>"><?= number_format($row['harga'], 0, ',', '.'); ?></td>
                                                     <td><?= htmlspecialchars($row['company']); ?></td>
-                                                    <td><?= htmlspecialchars($row['requestor']); ?></td>
                                                     <td><?= htmlspecialchars($row['id_settled']); ?></td>
                                                     <td><?= htmlspecialchars($row['date_settled']); ?></td>
                                                 </tr>
@@ -229,9 +193,9 @@ if (!isset($_SESSION['idnik'])) {
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th colspan="5" style="text-align:right">Total:</th>
+                                                <th colspan="4" style="text-align:right">Total:</th>
                                                 <th id="totalHarga"><?= number_format($totalHarga, 0, ',', '.'); ?></th>
-                                                <th colspan="4"></th>
+                                                <th colspan="3"></th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -254,18 +218,6 @@ if (!isset($_SESSION['idnik'])) {
             allowClear: true
         });
 
-        // Set default date values (awal bulan sampai akhir bulan)
-        function setDefaultDates() {
-            var today = new Date();
-            var firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
-            var lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-
-            $('#startDate').val(firstDay.toISOString().split('T')[0]);
-            $('#endDate').val(lastDay.toISOString().split('T')[0]);
-        }
-
-        setDefaultDates();
-
         // Tampilkan total data
         $('#totalData').text(<?= $rowCount ?>);
 
@@ -280,8 +232,8 @@ if (!isset($_SESSION['idnik'])) {
             scrollX: true,
             scrollCollapse: true,
             order: [
-                [3, 'desc']
-            ], // Sort by date
+                [7, 'desc']
+            ], // Sort by settlement date
             lengthMenu: [
                 [10, 25, 50, 100, -1],
                 ['10 rows', '25 rows', '50 rows', '100 rows', 'Show all']
@@ -343,9 +295,6 @@ if (!isset($_SESSION['idnik'])) {
             $('#filterKategori').val(null).trigger('change');
             $('#filterCompany').val(null).trigger('change');
             $('#filterSettlementId').val(null).trigger('change');
-            $('#filterRequestor').val(null).trigger('change');
-            $('#dateType').val('date');
-            setDefaultDates();
 
             // Remove all custom search functions
             while ($.fn.dataTable.ext.search.length > 0) {
@@ -361,15 +310,11 @@ if (!isset($_SESSION['idnik'])) {
             var kategoriValues = $('#filterKategori').val();
             var companyValues = $('#filterCompany').val();
             var settlementValues = $('#filterSettlementId').val();
-            var requestorValues = $('#filterRequestor').val();
-            var startDate = $('#startDate').val();
-            var endDate = $('#endDate').val();
-            var dateType = $('#dateType').val();
 
             // Clear existing filters
             table.search('').columns().search('').draw();
 
-            // Remove any existing date filter function
+            // Remove any existing search functions
             while ($.fn.dataTable.ext.search.length > 0) {
                 $.fn.dataTable.ext.search.pop();
             }
@@ -380,62 +325,16 @@ if (!isset($_SESSION['idnik'])) {
                 table.column(3).search(kategoriFilter, true, false);
             }
 
-            // Apply company filter (column 6 is "Company")
+            // Apply company filter (column 5 is "Company")
             if (companyValues && companyValues.length > 0) {
                 var companyFilter = companyValues.join('|');
-                table.column(6).search(companyFilter, true, false);
+                table.column(5).search(companyFilter, true, false);
             }
 
-            // Apply settlement ID filter (column 8 is "ID Settlement")
+            // Apply settlement ID filter (column 6 is "ID Settlement")
             if (settlementValues && settlementValues.length > 0) {
                 var settlementFilter = settlementValues.join('|');
-                table.column(8).search(settlementFilter, true, false);
-            }
-
-            // Apply requestor filter (column 7 is "Requestor")
-            if (requestorValues && requestorValues.length > 0) {
-                var requestorFilter = requestorValues.join('|');
-                table.column(7).search(requestorFilter, true, false);
-            }
-
-            // Apply date filter if dates are provided
-            if (startDate || endDate) {
-                var startDateObj = startDate ? new Date(startDate) : null;
-                var endDateObj = endDate ? new Date(endDate) : null;
-
-                // Determine which date column to filter (4 for transaction date, 9 for settled date)
-                var dateColumnIndex = (dateType === 'date_settled') ? 9 : 4;
-
-                // Add date filter function
-                $.fn.dataTable.ext.search.push(
-                    function(settings, data, dataIndex) {
-                        var dateStr = data[dateColumnIndex];
-                        if (!dateStr) return true;
-
-                        var rowDate = new Date(dateStr);
-
-                        // Check if date parsing was successful
-                        if (isNaN(rowDate.getTime())) {
-                            console.error('Failed to parse date:', dateStr);
-                            return true;
-                        }
-
-                        // Filter based on date range
-                        if (startDateObj && !endDateObj) {
-                            return rowDate >= startDateObj;
-                        }
-
-                        if (!startDateObj && endDateObj) {
-                            return rowDate <= endDateObj;
-                        }
-
-                        if (startDateObj && endDateObj) {
-                            return rowDate >= startDateObj && rowDate <= endDateObj;
-                        }
-
-                        return true;
-                    }
-                );
+                table.column(6).search(settlementFilter, true, false);
             }
 
             // Apply all filters
@@ -450,6 +349,9 @@ if (!isset($_SESSION['idnik'])) {
 
         // Handle Print Selected button
         $('#printSelectedBtn').on('click', function() {
+            // Disable tombol untuk mencegah klik ganda
+            $(this).prop('disabled', true).html('<i class="ri-loader-4-line align-bottom me-1 spin"></i> Processing...');
+
             // Collect selected items data
             var selectedItems = [];
 
@@ -459,21 +361,87 @@ if (!isset($_SESSION['idnik'])) {
                 selectedItems.push({
                     id: $checkbox.val(),
                     description: $checkbox.data('description'),
-                    date: $checkbox.data('date'),
                     harga: $checkbox.data('harga'),
                     category: $checkbox.data('category'),
                     company: $checkbox.data('company'),
-                    requestor: $checkbox.data('requestor'),
                     settlementId: $checkbox.data('settlement-id'),
                     settlementDate: $checkbox.data('settlement-date')
                 });
             });
 
-            // Store selected items in sessionStorage
+            // Jika tidak ada item yang dipilih
+            if (selectedItems.length === 0) {
+                showAlert('warning', 'Warning', 'Please select at least one item to print.');
+                $(this).prop('disabled', false).html('<i class="ri-printer-line align-bottom me-1"></i> Print Selected Data');
+                return;
+            }
+
+            // Buat data reimbursement
+            var reimbursementData = {
+                items: selectedItems,
+                company: selectedItems[0].company,
+                reference: selectedItems[0].settlementId && selectedItems[0].settlementId.trim() !== '' ?
+                    selectedItems[0].settlementId : 'REF-' + new Date().toISOString().slice(0, 10).replace(/-/g, ''),
+                voucher: 'VC-' + new Date().toISOString().slice(0, 10).replace(/-/g, '') + '-' +
+                    new Date().getHours().toString().padStart(2, '0') +
+                    new Date().getMinutes().toString().padStart(2, '0')
+            };
+
+            // Simpan di sessionStorage sementara
             sessionStorage.setItem('selectedCashOutItems', JSON.stringify(selectedItems));
 
-            // Open print view in a new tab/window
-            window.open('index.php?page=CashOutPrint', '_blank');
+            // Simpan data reimbursement ke database melalui AJAX
+            $.ajax({
+                url: 'function/save_reimbursement.php',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(reimbursementData),
+                success: function(response) {
+                    try {
+                        var result = typeof response === 'string' ? JSON.parse(response) : response;
+
+                        if (result.status === 'success') {
+                            // Simpan ID print di sessionStorage juga
+                            sessionStorage.setItem('reimbursementData', JSON.stringify({
+                                id_print: result.data.id_print,
+                                print_reference: result.data.print_reference,
+                                print_voucher: result.data.print_voucher
+                            }));
+
+                            // Buka halaman print dengan ID yang baru dibuat
+                            window.open('index.php?page=CashOutPrint&id=' + result.data.id_print, '_blank');
+                        } else {
+                            showAlert('error', 'Error', result.message || 'Failed to save reimbursement data');
+                        }
+                    } catch (e) {
+                        console.error('Error parsing response:', e, response);
+                        showAlert('error', 'Error', 'An error occurred while processing the response');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX Error:', xhr.responseText, status, error);
+                    showAlert('error', 'Error', 'Failed to save reimbursement data: ' + error);
+                },
+                complete: function() {
+                    // Re-enable tombol
+                    $('#printSelectedBtn').prop('disabled', false).html('<i class="ri-printer-line align-bottom me-1"></i> Print Selected Data');
+                }
+            });
         });
+
+        // Fungsi untuk menampilkan alert
+        function showAlert(type, title, message) {
+            if (typeof Swal !== 'undefined') {
+                // Jika SweetAlert2 tersedia
+                Swal.fire({
+                    icon: type,
+                    title: title,
+                    text: message
+                });
+            } else {
+                // Fallback ke alert biasa
+                alert(title + ': ' + message);
+            }
+        }
     });
 </script>

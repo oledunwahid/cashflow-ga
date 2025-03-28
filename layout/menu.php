@@ -11,7 +11,7 @@
                 <img src="assets/images/logo_MAA.png" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="assets/images/logo_MAAA.png" alt="" height="17">
+                <img src="assets/images/logo_MAAA.png" alt="" height="35">
             </span>
         </a>
         <!-- Light Logo-->
@@ -20,7 +20,7 @@
                 <img src="assets/images/logo_MAA.png" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="assets/images/logo_MAAA.png" alt="" height="39">
+                <img src="assets/images/logo_MAAA.png" alt="" height="35">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -63,7 +63,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link <?= $page == 'CashOutExport' ? 'active' : '' ?>" href="index.php?page=CashOutExport">
-                        <i class="ri-wallet-3-line"></i> <span><?= $lang['cash_out_export'] ?? 'Print Cash Out' ?></span>
+                        <i class="ri-printer-line"></i> <span><?= $lang['cash_out_export'] ?? 'Print Cash Out' ?></span>
                     </a>
                 </li>
 
