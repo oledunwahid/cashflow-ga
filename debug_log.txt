@@ -134,3 +134,416 @@ Refund Query: UPDATE cash_advance
               SET status='Refund',
                   refund_date='2025-03-27',
                   refund_notes='', bukti_pengembalian='refund_47_20250327041203.png' WHERE id_ca='47'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='3000000', 
+                  date_settlement='2025-04-02',
+                  status='Settled',
+                  id_settlement='STLM-20250402053658' WHERE id_ca='0'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='500000', 
+                  date_settlement='2025-04-02',
+                  status='Settled',
+                  id_settlement='STLM-20250402054650' WHERE id_ca='0'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='11111', 
+                  date_settlement='2025-04-02',
+                  status='Settled',
+                  id_settlement='STLM-20250402055224' WHERE id_ca='55'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='131231', 
+                  date_settlement='2025-04-02',
+                  status='Settled',
+                  id_settlement='STLM-20250402062843' WHERE id_ca='54'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual='22313211', 
+                  date_settlement='2025-04-02',
+                  status='Settled',
+                  id_settlement='STLM-20250402063551' WHERE id_ca='56'
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=? WHERE id_ca=?
+2025-04-02 15:16:15 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:16:31 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:16:42 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:17:09 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:18:19 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:18:22 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:21:39 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:22:15 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:24:08 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:26:19 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:26:29 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:26:42 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:28:20 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:28:50 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:36:02 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:53:29 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 15:57:25 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 16:00:44 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 16:03:27 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 16:03:36 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 16:14:08 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 16:17:44 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 16:18:18 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 16:20:13 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 16:23:39 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 16:23:59 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 16:24:11 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-02 16:27:50 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=?, bukti_nota=? WHERE id_ca=?
+Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=? WHERE id_ca=?
+2025-04-02 16:29:03 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-02 16:29:16 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 08:10:07 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 08:38:08 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 08:38:13 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 08:38:13 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 08:38:13 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 08:38:13 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 08:38:22 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 08:39:36 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 08:42:58 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 09:14:33 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 09:14:40 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 09:15:13 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 09:15:20 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 09:19:20 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 09:27:37 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 09:27:52 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 10:01:15 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 10:01:16 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 10:01:16 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 10:01:16 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 10:04:14 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 05:04:51 - Generated settlement ID: PRO250459 for CA ID: 59
+2025-04-04 05:04:51 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=? WHERE id_ca=?
+2025-04-04 10:04:51 - Settlement page loaded: CA ID=59, Settlement ID=PRO250459, Status=Pending
+2025-04-04 10:05:12 - Settlement page loaded: CA ID=59, Settlement ID=PRO250459, Status=Pending
+2025-04-04 05:09:24 - Generated settlement ID: MAR250460 for CA ID: 60
+2025-04-04 05:09:24 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=? WHERE id_ca=?
+2025-04-04 10:09:24 - Settlement page loaded: CA ID=60, Settlement ID=MAR250460, Status=Pending
+2025-04-04 10:09:38 - Settlement page loaded: CA ID=60, Settlement ID=MAR250460, Status=Pending
+2025-04-04 10:22:25 - Settlement page loaded: CA ID=60, Settlement ID=MAR250460, Status=Pending
+Refund Query: UPDATE cash_advance 
+              SET status='Refund',
+                  refund_date='2025-04-04',
+                  refund_notes='dadads', bukti_pengembalian='refund_55_20250404052335.pdf' WHERE id_ca='55'
+2025-04-04 10:51:59 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 10:52:52 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+Refund Query: UPDATE cash_advance 
+              SET status='Refund',
+                  refund_date='2025-04-04',
+                  refund_notes='dsadasda', bukti_pengembalian='refund_54_20250404055516.pdf' WHERE id_ca='54'
+2025-04-04 10:59:13 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 10:59:18 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 10:59:25 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 13:50:26 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 08:50:48 - Generated settlement ID: TRA250461 for CA ID: 61
+2025-04-04 08:50:48 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=? WHERE id_ca=?
+2025-04-04 13:50:48 - Settlement page loaded: CA ID=61, Settlement ID=TRA250461, Status=Pending
+2025-04-04 13:50:58 - Settlement page loaded: CA ID=61, Settlement ID=TRA250461, Status=Pending
+2025-04-04 08:51:00 - REQUEST DATA: Array
+(
+    [id_ca] => 61
+    [id_settlement] => TRA250461
+)
+
+2025-04-04 08:51:00 - Processing settlement - CA ID: 61, Settlement ID: TRA250461
+2025-04-04 08:51:00 - Total details: 12312313, Actual amount: 354354
+2025-04-04 08:51:00 - Exceeded budget case - Amount: 11957959
+2025-04-04 08:51:00 - SUCCESS: Settlement completed - CA ID: 61, Settlement ID: TRA250461, Status: Done
+2025-04-04 08:51:45 - REQUEST DATA: Array
+(
+    [id_ca] => 61
+    [id_settlement] => TRA250461
+)
+
+2025-04-04 08:51:45 - Processing settlement - CA ID: 61, Settlement ID: TRA250461
+2025-04-04 08:51:45 - Total details: 12312313, Actual amount: 354354
+2025-04-04 08:51:45 - Exceeded budget case - Amount: 11957959
+2025-04-04 08:51:45 - SUCCESS: Settlement completed - CA ID: 61, Settlement ID: TRA250461, Status: Done
+2025-04-04 09:15:30 - REQUEST DATA: Array
+(
+    [id_ca] => 61
+    [id_settlement] => TRA250461
+)
+
+2025-04-04 09:15:30 - Processing settlement - CA ID: 61, Settlement ID: TRA250461
+2025-04-04 09:15:30 - Total details: 12312313, Actual amount: 354354
+2025-04-04 09:15:30 - Exceeded budget case - Amount: 11957959
+2025-04-04 09:15:30 - SUCCESS: Settlement completed - CA ID: 61, Settlement ID: TRA250461, Status: Done
+2025-04-04 14:15:35 - Settlement page loaded: CA ID=61, Settlement ID=TRA250461, Status=Done
+2025-04-04 14:15:35 - Settlement page loaded: CA ID=61, Settlement ID=TRA250461, Status=Done
+2025-04-04 14:15:36 - Settlement page loaded: CA ID=61, Settlement ID=TRA250461, Status=Done
+2025-04-04 14:15:57 - Settlement page loaded: CA ID=60, Settlement ID=MAR250460, Status=Pending
+2025-04-04 09:16:01 - REQUEST DATA: Array
+(
+    [id_ca] => 60
+    [id_settlement] => MAR250460
+)
+
+2025-04-04 09:16:01 - Processing settlement - CA ID: 60, Settlement ID: MAR250460
+2025-04-04 09:16:01 - Total details: 135444, Actual amount: 11312333
+2025-04-04 09:16:01 - Refund case - Amount: 11176889
+2025-04-04 09:16:01 - SUCCESS: Settlement completed - CA ID: 60, Settlement ID: MAR250460, Status: Refund
+2025-04-04 14:16:03 - Settlement page loaded: CA ID=60, Settlement ID=MAR250460, Status=Refund
+2025-04-04 09:36:15 - Generated settlement ID: MAR250462 for CA ID: 62
+2025-04-04 09:36:15 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=?, bukti_nota=? WHERE id_ca=?
+2025-04-04 09:36:46 - Generated settlement ID: MAR250462 for CA ID: 62
+2025-04-04 09:36:46 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=?, bukti_nota=? WHERE id_ca=?
+2025-04-04 09:38:38 - Generated settlement ID: MAR250462 for CA ID: 62
+2025-04-04 09:38:38 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=?, bukti_nota=? WHERE id_ca=?
+2025-04-04 09:39:15 - Generated settlement ID: MAR250462 for CA ID: 62
+2025-04-04 09:39:15 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=?, bukti_nota=? WHERE id_ca=?
+2025-04-04 09:46:25 - Generated settlement ID: MAR250462 for CA ID: 62
+2025-04-04 09:46:25 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=?, bukti_nota=? WHERE id_ca=?
+2025-04-04 09:46:57 - Generated settlement ID: MAR250462 for CA ID: 62
+2025-04-04 09:46:57 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=?, bukti_nota=? WHERE id_ca=?
+2025-04-04 14:46:57 - Settlement page loaded: CA ID=62, Settlement ID=MAR250462, Status=Pending
+2025-04-04 14:47:20 - Settlement page loaded: CA ID=62, Settlement ID=MAR250462, Status=Pending
+2025-04-04 14:47:23 - Settlement page loaded: CA ID=62, Settlement ID=MAR250462, Status=Pending
+2025-04-04 14:47:30 - Settlement page loaded: CA ID=62, Settlement ID=MAR250462, Status=Pending
+2025-04-04 15:03:45 - Settlement page loaded: CA ID=62, Settlement ID=MAR250462, Status=Pending
+2025-04-04 10:03:47 - REQUEST DATA: Array
+(
+    [id_ca] => 62
+    [id_settlement] => MAR250462
+)
+
+2025-04-04 10:03:47 - Processing settlement - CA ID: 62, Settlement ID: MAR250462
+2025-04-04 10:03:47 - Total details: 124389807, Actual amount: 500000
+2025-04-04 10:03:47 - Updated status to Settled for CA ID: 62
+2025-04-04 10:03:47 - Exceeded budget case - Amount: 123889807
+2025-04-04 10:03:47 - Updated status from Settled to Done for CA ID: 62
+2025-04-04 15:04:09 - Settlement page loaded: CA ID=62, Settlement ID=MAR250462, Status=Done
+2025-04-04 15:04:20 - Settlement page loaded: CA ID=59, Settlement ID=PRO250459, Status=Pending
+2025-04-04 10:04:23 - REQUEST DATA: Array
+(
+    [id_ca] => 59
+    [id_settlement] => PRO250459
+)
+
+2025-04-04 10:04:23 - Processing settlement - CA ID: 59, Settlement ID: PRO250459
+2025-04-04 10:04:23 - Total details: 2313131, Actual amount: 6000
+2025-04-04 10:04:23 - Updated status to Settled for CA ID: 59
+2025-04-04 10:04:23 - Exceeded budget case - Amount: 2307131
+2025-04-04 10:04:23 - Updated status from Settled to Done for CA ID: 59
+2025-04-04 10:06:43 - REQUEST DATA: Array
+(
+    [id_ca] => 59
+    [id_settlement] => PRO250459
+)
+
+2025-04-04 10:06:43 - Processing settlement - CA ID: 59, Settlement ID: PRO250459
+2025-04-04 10:06:43 - Total details: 2313131, Actual amount: 6000
+2025-04-04 10:06:43 - Updated status to Settled for CA ID: 59
+2025-04-04 10:06:43 - Exceeded budget case - Amount: 2307131
+2025-04-04 10:06:43 - Updated status from Settled to Done for CA ID: 59
+2025-04-04 10:07:38 - REQUEST DATA: Array
+(
+    [id_ca] => 59
+    [id_settlement] => PRO250459
+)
+
+2025-04-04 10:07:38 - Processing settlement - CA ID: 59, Settlement ID: PRO250459
+2025-04-04 10:07:38 - Total details: 2313131, Actual amount: 6000
+2025-04-04 10:07:38 - Updated status to Settled for CA ID: 59
+2025-04-04 10:07:38 - Exceeded budget case - Amount: 2307131
+2025-04-04 10:07:38 - Updated status from Settled to Done for CA ID: 59
+2025-04-04 15:07:44 - Settlement page loaded: CA ID=59, Settlement ID=PRO250459, Status=Done
+2025-04-04 15:08:14 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Pending
+2025-04-04 10:08:15 - REQUEST DATA: Array
+(
+    [id_ca] => 58
+    [id_settlement] => STLM-20250402112903
+)
+
+2025-04-04 10:08:15 - Processing settlement - CA ID: 58, Settlement ID: STLM-20250402112903
+2025-04-04 10:08:15 - Total details: 123314, Actual amount: 12313131
+2025-04-04 10:08:15 - Updated status to Settled for CA ID: 58
+2025-04-04 10:08:15 - Refund case - Amount: 12189817
+2025-04-04 10:08:15 - Updated status from Settled to Refund for CA ID: 58
+2025-04-04 10:08:47 - REQUEST DATA: Array
+(
+    [id_ca] => 58
+    [id_settlement] => STLM-20250402112903
+)
+
+2025-04-04 10:08:47 - Processing settlement - CA ID: 58, Settlement ID: STLM-20250402112903
+2025-04-04 10:08:47 - Total details: 123314, Actual amount: 12313131
+2025-04-04 10:08:47 - Updated status to Settled for CA ID: 58
+2025-04-04 10:08:47 - Refund case - Amount: 12189817
+2025-04-04 10:08:47 - Updated status from Settled to Refund for CA ID: 58
+2025-04-04 10:08:57 - REQUEST DATA: Array
+(
+    [id_ca] => 58
+    [id_settlement] => STLM-20250402112903
+)
+
+2025-04-04 10:08:57 - Processing settlement - CA ID: 58, Settlement ID: STLM-20250402112903
+2025-04-04 10:08:57 - Total details: 123314, Actual amount: 12313131
+2025-04-04 10:08:57 - Updated status to Settled for CA ID: 58
+2025-04-04 10:08:57 - Refund case - Amount: 12189817
+2025-04-04 10:08:57 - Updated status from Settled to Refund for CA ID: 58
+2025-04-04 15:09:54 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Refund
+2025-04-04 10:11:14 - Generated settlement ID: MAR250463 for CA ID: 63
+2025-04-04 10:11:14 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=? WHERE id_ca=?
+2025-04-04 15:11:14 - Settlement page loaded: CA ID=63, Settlement ID=MAR250463, Status=Pending
+2025-04-04 15:11:19 - Settlement page loaded: CA ID=63, Settlement ID=MAR250463, Status=Pending
+2025-04-04 15:11:33 - Settlement page loaded: CA ID=63, Settlement ID=MAR250463, Status=Pending
+2025-04-04 10:11:58 - REQUEST DATA: Array
+(
+    [id_ca] => 63
+    [id_settlement] => MAR250463
+)
+
+2025-04-04 10:11:58 - Processing settlement - CA ID: 63, Settlement ID: MAR250463
+2025-04-04 10:11:58 - Total details: 124344, Actual amount: 123121112
+2025-04-04 10:11:58 - Updated status to Settled for CA ID: 63
+2025-04-04 10:11:58 - Refund case - Amount: 122996768
+2025-04-04 10:11:58 - Updated status from Settled to Refund for CA ID: 63
+2025-04-04 15:12:00 - Settlement page loaded: CA ID=63, Settlement ID=MAR250463, Status=Refund
+2025-04-04 15:12:01 - Settlement page loaded: CA ID=63, Settlement ID=MAR250463, Status=Refund
+2025-04-04 15:12:02 - Settlement page loaded: CA ID=63, Settlement ID=MAR250463, Status=Refund
+2025-04-04 15:12:02 - Settlement page loaded: CA ID=63, Settlement ID=MAR250463, Status=Refund
+2025-04-04 15:12:02 - Settlement page loaded: CA ID=63, Settlement ID=MAR250463, Status=Refund
+2025-04-04 15:12:28 - Settlement page loaded: CA ID=57, Settlement ID=STLM-20250402093855, Status=Pending
+2025-04-04 10:12:30 - REQUEST DATA: Array
+(
+    [id_ca] => 57
+    [id_settlement] => STLM-20250402093855
+)
+
+2025-04-04 10:12:30 - Processing settlement - CA ID: 57, Settlement ID: STLM-20250402093855
+2025-04-04 10:12:30 - Total details: 58933577, Actual amount: 10000000
+2025-04-04 10:12:30 - Updated status to Settled for CA ID: 57
+2025-04-04 10:12:30 - Exceeded budget case - Amount: 48933577
+2025-04-04 10:12:30 - Updated status from Settled to Done for CA ID: 57
+2025-04-04 10:26:11 - REQUEST DATA: Array
+(
+    [id_ca] => 57
+    [id_settlement] => STLM-20250402093855
+)
+
+2025-04-04 10:26:11 - Processing settlement - CA ID: 57, Settlement ID: STLM-20250402093855
+2025-04-04 10:26:11 - Total details: 58933577, Actual amount: 10000000
+2025-04-04 10:26:11 - Updated status to Settled for CA ID: 57
+2025-04-04 10:26:11 - Exceeded budget case - Amount: 48933577
+2025-04-04 10:26:11 - Updated status from Settled to Done for CA ID: 57
+2025-04-04 10:26:11 - SUCCESS: Settlement completed for Cash Advance ID: 57, Settlement ID: STLM-20250402093855, Total Details: Rp 58.933.577, Final Status: Done
+2025-04-04 10:26:53 - Generated settlement ID: MAR250464 for CA ID: 64
+2025-04-04 10:26:53 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=? WHERE id_ca=?
+2025-04-04 15:26:53 - Settlement page loaded: CA ID=64, Settlement ID=MAR250464, Status=Pending
+2025-04-04 15:27:05 - Settlement page loaded: CA ID=64, Settlement ID=MAR250464, Status=Pending
+2025-04-04 10:27:09 - REQUEST DATA: Array
+(
+    [id_ca] => 64
+    [id_settlement] => MAR250464
+)
+
+2025-04-04 10:27:09 - Processing settlement - CA ID: 64, Settlement ID: MAR250464
+2025-04-04 10:27:09 - Total details: 1000000, Actual amount: 34554
+2025-04-04 10:27:09 - Updated status to Settled for CA ID: 64
+2025-04-04 10:27:09 - Exceeded budget case - Amount: 965446
+2025-04-04 10:27:09 - Updated status from Settled to Done for CA ID: 64
+2025-04-04 10:27:09 - SUCCESS: Settlement completed for Cash Advance ID: 64, Settlement ID: MAR250464, Total Details: Rp 1.000.000, Final Status: Done
+2025-04-04 10:44:50 - Generated settlement ID: TRA250465 for CA ID: 65
+2025-04-04 10:44:50 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=? WHERE id_ca=?
+2025-04-04 15:44:50 - Settlement page loaded: CA ID=65, Settlement ID=TRA250465, Status=Pending
+2025-04-04 15:45:00 - Settlement page loaded: CA ID=65, Settlement ID=TRA250465, Status=Pending
+2025-04-04 10:45:02 - REQUEST DATA: Array
+(
+    [id_ca] => 65
+    [id_settlement] => TRA250465
+)
+
+2025-04-04 10:45:02 - Processing settlement - CA ID: 65, Settlement ID: TRA250465
+2025-04-04 10:45:02 - Total details: 2132131, Actual amount: 66779
+2025-04-04 10:45:02 - Updated status to Settled for CA ID: 65
+2025-04-04 10:45:02 - Exceeded budget case - Amount: 2065352
+2025-04-04 10:45:02 - Updated status from Settled to Done for CA ID: 65
+2025-04-04 10:45:02 - SUCCESS: Settlement completed for Cash Advance ID: 65, Settlement ID: TRA250465, Total Details: Rp 2.132.131, Final Status: Done
+2025-04-04 11:00:19 - Generated settlement ID: TRA250466 for CA ID: 66
+2025-04-04 11:00:19 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=? WHERE id_ca=?
+2025-04-04 16:00:19 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 16:00:24 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 16:00:35 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 16:01:25 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 16:02:57 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 16:06:50 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 16:06:53 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 16:06:53 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 16:06:54 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 16:06:54 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 16:15:07 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 11:15:09 - DELETE DETAIL REQUEST DATA: Array
+(
+    [id_detail] => 24
+)
+
+2025-04-04 11:15:09 - Processing delete detail ID: 24
+2025-04-04 11:15:09 - Found item: CA ID=66, Settlement ID=TRA250466, Item=sadas, Price=22333
+2025-04-04 11:19:36 - DELETE DETAIL REQUEST DATA: Array
+(
+    [id_detail] => 24
+)
+
+2025-04-04 11:19:36 - Processing delete detail ID: 24
+2025-04-04 11:19:36 - Found item: CA ID=66, Settlement ID=TRA250466, Item=sadas, Price=22333
+2025-04-04 11:19:36 - SUCCESS: Deleted item from settlement - CA ID: 66, Settlement ID: TRA250466, Item: sadas, Price: Rp 22.333
+2025-04-04 16:19:36 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-04 11:19:40 - DELETE DETAIL REQUEST DATA: Array
+(
+    [id_detail] => 23
+)
+
+2025-04-04 11:19:40 - Processing delete detail ID: 23
+2025-04-04 11:19:40 - Found item: CA ID=66, Settlement ID=TRA250466, Item=dasdas, Price=1
+2025-04-04 11:19:40 - SUCCESS: Deleted item from settlement - CA ID: 66, Settlement ID: TRA250466, Item: dasdas, Price: Rp 1
+2025-04-04 16:19:40 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending

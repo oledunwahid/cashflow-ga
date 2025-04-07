@@ -1,22 +1,24 @@
 <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script> © PT. Mineral Alasssssssssm Abadi.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Team HR-GA
-                            </div>
-                        </div>
-                    </div>
-					
-										
-										
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <script>
+                    document.write(new Date().getFullYear())
+                </script> © Mineral Alam Abadi Group.
+            </div>
+            <div class="col-sm-6">
+                <div class="text-sm-end d-none d-sm-block">
+                    Design & Develop by Team HR-GA
                 </div>
-                                                       
-                                                   
-            </footer>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -32,5 +34,3 @@
         <?php } ?>
     });
 </script>
-
-
