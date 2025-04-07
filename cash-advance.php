@@ -11,6 +11,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+
+<?php
+include_once("function/helper_functions.php")
+?>
 <style>
     /* Enhanced styling for the entire page */
     body {
@@ -412,21 +416,22 @@
                             <?php
                             // Simplified query without JOIN
                             $sql = "SELECT 
-                                id_ca, 
-                                deskripsi,
-                                kategori, 
-                                request,
-                                date_request,
-                                jumlah_request,
-                                jumlah_actual,
-                                date_settlement,
-                                status,
-                                bukti_pengembalian,
-                                bukti_nota,
-                                refund_date,
-                                refund_notes
-                            FROM 
-                                cash_advance";
+    id_ca, 
+    deskripsi,
+    kategori, 
+    request,
+    date_request,
+    jumlah_request,
+    jumlah_actual,
+    date_settlement,
+    status,
+    bukti_pengembalian,
+    bukti_nota,
+    refund_date,
+    refund_notes,
+    id_settlement  -- Added id_settlement field
+FROM 
+    cash_advance";
                             $result = mysqli_query($koneksi, $sql);
                             if (!$result) {
                                 die("Query failed: " . mysqli_error($koneksi));
@@ -506,20 +511,20 @@
                                     <td>
                                         <div class="d-flex gap-1">
                                             <button type="button" class="btn btn-soft-secondary btn-sm action-btn" onclick="openEditModalFromDetail({
-                                                    id_ca: <?= $row['id_ca'] ?>,
-                                                    deskripsi: '<?= addslashes($row['deskripsi']) ?>',
-                                                    kategori: '<?= $row['kategori'] ?>',
-                                                    request: '<?= $row['request'] ?>',
-                                                    date_request: '<?= $row['date_request'] ?>',
-                                                    jumlah_request: '<?= $row['jumlah_request'] ?>',
-                                                    jumlah_actual: '<?= $row['jumlah_actual'] ?>',
-                                                    date_settlement: '<?= $row['date_settlement'] ?>',
-                                                    status: '<?= $row['status'] ?>',
-                                                    bukti_nota: '<?= $row['bukti_nota'] ?>',
-                                                    bukti_pengembalian: '<?= $row['bukti_pengembalian'] ?>',
-                                                    refund_date: '<?= $row['refund_date'] ?>',
-                                                    refund_notes: '<?= addslashes($row['refund_notes'] ?? '') ?>'
-                                                })">
+                id_ca: <?= $row['id_ca'] ?>,
+                deskripsi: '<?= addslashes($row['deskripsi']) ?>',
+                kategori: '<?= $row['kategori'] ?>',
+                request: '<?= $row['request'] ?>',
+                date_request: '<?= $row['date_request'] ?>',
+                jumlah_request: '<?= $row['jumlah_request'] ?>',
+                jumlah_actual: '<?= $row['jumlah_actual'] ?>',
+                date_settlement: '<?= $row['date_settlement'] ?>',
+                status: '<?= $row['status'] ?>',
+                bukti_nota: '<?= $row['bukti_nota'] ?>',
+                bukti_pengembalian: '<?= $row['bukti_pengembalian'] ?>',
+                refund_date: '<?= $row['refund_date'] ?>',
+                refund_notes: '<?= addslashes($row['refund_notes'] ?? '') ?>'
+            })">
                                                 <i class="ri-pencil-fill align-bottom text-muted"></i>
                                             </button>
                                             <button type="button" class="btn btn-soft-danger btn-sm action-btn"
@@ -531,8 +536,21 @@
                                             // Show buttons based on status and selisih
                                             $selisih = $row['jumlah_request'] - $row['jumlah_actual'];
 
-                                            // Settle button - only for Pending or Approved
-                                            if ($row['status'] == 'Pending' || $row['status'] == 'Approved'):
+                                            // Check if settlement is already in progress but not completed
+                                            $settlement_in_progress = !empty($row['id_settlement']) &&
+                                                ($row['status'] == 'Approved' || $row['status'] == 'Pending');
+
+                                            // Trigger to continue settlement
+                                            if ($settlement_in_progress):
+                                            ?>
+                                                <a href="index.php?page=SettlementDetails&id_ca=<?= $row['id_ca'] ?>&id_settlement=<?= $row['id_settlement'] ?>"
+                                                    class="btn btn-soft-warning btn-sm action-btn" data-bs-toggle="tooltip"
+                                                    title="Continue Settlement">
+                                                    <i class="ri-restart-line align-bottom text-warning"></i>
+                                                </a>
+                                            <?php
+                                            // Settle button - only for Pending or Approved without settlement in progress
+                                            elseif ($row['status'] == 'Pending' || $row['status'] == 'Approved'):
                                             ?>
                                                 <button type="button" class="btn btn-soft-info btn-sm action-btn" onclick="openSettlementModalFromDetail(<?= $row['id_ca'] ?>, '<?= addslashes($row['deskripsi']) ?>')">
                                                     <i class="ri-exchange-funds-fill align-bottom text-muted"></i>
@@ -912,33 +930,46 @@
             <form id="settlementForm" action="function/settlement_ca.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <input type="hidden" name="id_ca" id="settlement_id_ca">
+                    <input type="hidden" name="jumlah_request" id="settlement_jumlah_request_hidden">
+
                     <div class="detail-section mb-3">
                         <h6 class="text-muted mb-2">Cash Advance Details</h6>
                         <div class="mb-3">
                             <label class="form-label">Deskripsi</label>
                             <p id="settlement_deskripsi" class="form-control-static"></p>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">Requested Amount</label>
+                            <p id="settlement_jumlah_request" class="form-control-static fw-bold"></p>
+                        </div>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Jumlah Actual (Rp)</label>
+                        <label class="form-label">Actual Amount Used (Rp)</label>
                         <input type="text" class="form-control currency-input" name="jumlah_actual" required>
+                        <small class="text-muted">Enter the amount actually used from this cash advance</small>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Date Settlement</label>
+                        <label class="form-label">Settlement Date</label>
                         <input type="date" class="form-control" name="date_settlement" value="<?= date('Y-m-d') ?>" required>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Bukti Pengeluaran</label>
+                        <label class="form-label">Initial Receipt</label>
                         <input type="file" class="form-control" name="bukti_pengeluaran" accept="image/*, .pdf">
-                        <small class="text-muted">Upload receipt or supporting documents (JPG, PNG, PDF)</small>
+                        <small class="text-muted">Upload a general receipt or supporting document (JPG, PNG, PDF). You'll be able to add detailed items in the next step.</small>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <i class="ri-information-line me-2"></i> After submitting, you'll be taken to a page where you can add detailed items for this settlement.
                     </div>
                 </div>
                 <div class="modal-footer mt-3">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary" name="settlement-ca">Submit Settlement</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" name="settlement-ca">
+                        <i class="ri-check-line me-1"></i> Submit & Continue to Details
+                    </button>
                 </div>
             </form>
         </div>

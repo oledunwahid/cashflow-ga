@@ -7,7 +7,7 @@ $pageFiles = [
     'PettyCashOut' => 'petty-cash-out.php',
     'PettyCashIn' => 'petty-cash-in.php',
 
-
+    'SettlementDetails' => 'settlement-details.php',
     'CashOutExport' => 'cash-out-export.php',
     'CashOutPrint' => 'cash-out-print.php',
     'Profile' => 'profile.php',
