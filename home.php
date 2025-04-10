@@ -261,11 +261,6 @@ $ca_category_distribution = getCashAdvanceCategoryDistribution($koneksi, $start_
     #cashflow_chart {
         min-height: 350px;
     }
-
-    /* Category distribution chart styling */
-    #category_distribution_chart {
-        min-height: 300px;
-    }
 </style>
 
 <div class="h-100">
@@ -571,20 +566,6 @@ $ca_category_distribution = getCashAdvanceCategoryDistribution($koneksi, $start_
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cash Advance Category Distribution Chart -->
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title mb-0">Cash Advance Expense Categories (<?= date('F Y') ?>)</h4>
-                </div>
-                <div class="card-body">
-                    <div id="category_distribution_chart" class="apex-charts" dir="ltr"></div>
                 </div>
             </div>
         </div>

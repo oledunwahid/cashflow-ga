@@ -547,3 +547,66 @@ Refund Query: UPDATE cash_advance
 2025-04-04 11:19:40 - Found item: CA ID=66, Settlement ID=TRA250466, Item=dasdas, Price=1
 2025-04-04 11:19:40 - SUCCESS: Deleted item from settlement - CA ID: 66, Settlement ID: TRA250466, Item: dasdas, Price: Rp 1
 2025-04-04 16:19:40 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-08 15:27:21 - Settlement page loaded: CA ID=58, Settlement ID=STLM-20250402112903, Status=Refund
+2025-04-10 04:30:25 - Generated settlement ID: MAR250467 for CA ID: 67
+2025-04-10 04:30:25 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=? WHERE id_ca=?
+2025-04-10 09:30:25 - Settlement page loaded: CA ID=67, Settlement ID=MAR250467, Status=Pending
+2025-04-10 09:31:19 - Settlement page loaded: CA ID=67, Settlement ID=MAR250467, Status=Pending
+2025-04-10 04:31:55 - REQUEST DATA: Array
+(
+    [id_ca] => 67
+    [id_settlement] => MAR250467
+)
+
+2025-04-10 04:31:55 - Processing settlement - CA ID: 67, Settlement ID: MAR250467
+2025-04-10 04:31:55 - Total details: 80000, Actual amount: 80000
+2025-04-10 04:31:55 - Updated status to Settled for CA ID: 67
+2025-04-10 04:31:55 - Updated status from Settled to Done for CA ID: 67
+2025-04-10 04:31:55 - SUCCESS: Settlement completed for Cash Advance ID: 67, Settlement ID: MAR250467, Total Details: Rp 80.000, Final Status: Done
+2025-04-10 09:32:48 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-10 09:32:54 - Settlement page loaded: CA ID=66, Settlement ID=TRA250466, Status=Pending
+2025-04-10 04:32:56 - REQUEST DATA: Array
+(
+    [id_ca] => 66
+    [id_settlement] => TRA250466
+)
+
+2025-04-10 04:32:56 - Processing settlement - CA ID: 66, Settlement ID: TRA250466
+2025-04-10 04:32:56 - Total details: 1000000, Actual amount: 22111
+2025-04-10 04:32:56 - Updated status to Settled for CA ID: 66
+2025-04-10 04:32:56 - Exceeded budget case - Amount: 977889
+2025-04-10 04:32:56 - Updated status from Settled to Done for CA ID: 66
+2025-04-10 04:32:56 - SUCCESS: Settlement completed for Cash Advance ID: 66, Settlement ID: TRA250466, Total Details: Rp 1.000.000, Final Status: Done
+2025-04-10 04:34:50 - Generated settlement ID: PRO250468 for CA ID: 68
+2025-04-10 04:34:50 - Settlement Query: UPDATE cash_advance 
+              SET jumlah_actual=?, 
+                  date_settlement=?,
+                  id_settlement=? WHERE id_ca=?
+2025-04-10 09:34:50 - Settlement page loaded: CA ID=68, Settlement ID=PRO250468, Status=Pending
+2025-04-10 09:36:12 - Settlement page loaded: CA ID=68, Settlement ID=PRO250468, Status=Pending
+2025-04-10 09:36:42 - Settlement page loaded: CA ID=68, Settlement ID=PRO250468, Status=Pending
+2025-04-10 04:36:51 - DELETE DETAIL REQUEST DATA: Array
+(
+    [id_detail] => 27
+)
+
+2025-04-10 04:36:51 - Processing delete detail ID: 27
+2025-04-10 04:36:51 - Found item: CA ID=68, Settlement ID=PRO250468, Item=starlink standard editiin, Price=2200000
+2025-04-10 04:36:51 - SUCCESS: Deleted item from settlement - CA ID: 68, Settlement ID: PRO250468, Item: starlink standard editiin, Price: Rp 2.200.000
+2025-04-10 09:36:51 - Settlement page loaded: CA ID=68, Settlement ID=PRO250468, Status=Pending
+2025-04-10 09:37:09 - Settlement page loaded: CA ID=68, Settlement ID=PRO250468, Status=Pending
+2025-04-10 04:37:20 - REQUEST DATA: Array
+(
+    [id_ca] => 68
+    [id_settlement] => PRO250468
+)
+
+2025-04-10 04:37:20 - Processing settlement - CA ID: 68, Settlement ID: PRO250468
+2025-04-10 04:37:20 - Total details: 23000000, Actual amount: 25000000
+2025-04-10 04:37:20 - Updated status to Settled for CA ID: 68
+2025-04-10 04:37:20 - Refund case - Amount: 2000000
+2025-04-10 04:37:20 - Updated status from Settled to Refund for CA ID: 68
+2025-04-10 04:37:20 - SUCCESS: Settlement completed for Cash Advance ID: 68, Settlement ID: PRO250468, Total Details: Rp 23.000.000, Final Status: Refund

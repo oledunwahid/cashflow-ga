@@ -428,37 +428,6 @@ if (isset($_COOKIE['username'])) {
 
 <body>
     <div class="login-container">
-        <!-- Language Switcher -->
-        <?php
-        // Get current URL without language parameter
-        $queryString = $_SERVER['QUERY_STRING'] ?? '';
-        parse_str($queryString, $params);
-        unset($params['lang']); // Remove existing lang parameter
-
-        // Create new URLs with language parameter
-        $baseUrl = basename($_SERVER['PHP_SELF']); // Get current filename (e.g., "index.php")
-        $indonesiaUrl = $baseUrl . (empty($params) ? '?lang=indonesia' : '?' . http_build_query($params) . '&lang=indonesia');
-        $englishUrl = $baseUrl . (empty($params) ? '?lang=english' : '?' . http_build_query($params) . '&lang=english');
-
-        // Determine current language
-        $language = isset($_GET['lang']) ? $_GET['lang'] : 'english'; // Default to English
-        ?>
-
-        <div class="language-switcher">
-            <button onclick="toggleLanguageDropdown()" class="language-btn">
-                <?php echo $language === 'indonesia' ? '<i class="fi fi-id me-1"></i> ID' : '<i class="fi fi-us me-1"></i> EN'; ?>
-                <i class="ri-arrow-down-s-line"></i>
-            </button>
-            <div id="languageDropdown" class="language-dropdown">
-                <a href="<?= $indonesiaUrl ?>" <?= $language === 'indonesia' ? 'class="active"' : '' ?>>
-                    <i class="fi fi-id me-2"></i> Indonesia
-                </a>
-                <a href="<?= $englishUrl ?>" <?= $language === 'english' ? 'class="active"' : '' ?>>
-                    <i class="fi fi-us me-2"></i> English
-                </a>
-            </div>
-        </div>
-
         <!-- Auth background with particles -->
         <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
             <div class="bg-overlay"></div>
@@ -468,7 +437,7 @@ if (isset($_COOKIE['username'])) {
         <div class="login-card">
             <!-- Logo -->
             <div class="login-logo">
-                <img src="assets/images/logo_MAAA.png" alt="Mineral Alam Abadi Logo">
+                <img src="assets/images/full_width_logo_maa.png" alt="Mineral Alam Abadi Logo">
             </div>
 
             <!-- Title -->
@@ -518,7 +487,6 @@ if (isset($_COOKIE['username'])) {
                             Remember me
                         </label>
                     </div>
-                    <a href="forgotpassword.php" class="forgot-link">Forgot password?</a>
                 </div>
 
                 <!-- Submit Button -->

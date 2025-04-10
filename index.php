@@ -9,8 +9,8 @@ include "koneksi.php";
 $idnik = $_SESSION['idnik'];
 $sqllogin = mysqli_query($koneksi, "SELECT * FROM  user WHERE idnik='$idnik'");
 $rowlogin = mysqli_fetch_assoc($sqllogin);
-		
-$niklogin = $idnik ;
+
+$niklogin = $idnik;
 $namalogin = $rowlogin['nama'];
 $foto_profile = $rowlogin['file_foto'];
 $divisilogin = $rowlogin['divisi'];
@@ -23,28 +23,29 @@ if (!$result_admin) {
     die("Error checking admin status: " . mysqli_error($koneksi));
 }
 $user_admin = mysqli_fetch_assoc($result_admin);
-$is_admin = in_array($user_admin['id_role'], [1, 12]); 
+$is_admin = in_array($user_admin['id_role'], [1, 12]);
 
 
-date_default_timezone_set('Asia/Jakarta'); 
+date_default_timezone_set('Asia/Jakarta');
 ?>
 
 <?php
-function rupiah($angka){
-	$hasil_rupiah = "Rp " . number_format($angka,0,',','.');
-	return $hasil_rupiah;
+function rupiah($angka)
+{
+    $hasil_rupiah = "Rp " . number_format($angka, 0, ',', '.');
+    return $hasil_rupiah;
 }
 
-function fsize($file){
+function fsize($file)
+{
     $a = array("B", "KB", "MB", "GB", "TB", "PB");
     $pos = 0;
     $size = filesize($file);
-    while ($size >= 1024)
-    {
+    while ($size >= 1024) {
         $size /= 1024;
         $pos++;
     }
-    return round($size,2)." ".$a[$pos];
+    return round($size, 2) . " " . $a[$pos];
 }
 ?>
 
@@ -57,7 +58,7 @@ function fsize($file){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="assets/images/logo.svg">
     <link href="assets/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
     <script src="assets/js/layout.js"></script>
@@ -66,7 +67,7 @@ function fsize($file){
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
-    
+
 </head>
 
 <body>
@@ -104,7 +105,7 @@ function fsize($file){
     </button>
 
     <!-- Floating Chat Button -->
-    
+
 
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/node-waves/waves.min.js"></script>
@@ -118,6 +119,7 @@ function fsize($file){
     <script src="assets/libs/prismjs/prism.js"></script>
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/app.js"></script>
-    
+
 </body>
+
 </html>
